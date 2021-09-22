@@ -19,5 +19,5 @@ while x <= avaliacoes:
     # incrementando o valor do loop
     x += 1
 
-# mostra na tela a soma das notas que estão na lista
+# mostra na tela a média das notas que estão na lista
 print(f'Sua média é: {sum(notas)/len(notas)}')
