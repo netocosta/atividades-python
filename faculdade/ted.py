@@ -16,48 +16,63 @@ OK - e se o carácter passado como argumento for 'H' ou 'h', a função retorna 
 DICAS:
 - consulte as fórmulas das médias na internet
 - use laço while e if/elif/else na implementação
+
+FORMULAS:
+Media Aritmetica: (nota1 + nota2 + nota3) / total_de_notas = RESULTADO
+Media Ponderada: (nota1*peso1) + (nota2*peso2) + (nota3*peso3) / (peso1 + peso2 + peso3) = RESULTADO
+Media Harmonica: (qtd de elementos) / (1/nota1) + (1/nota2) + (1/nota3) = 
+                 (qtd de elementos) / (((mmc / nota1)*1) + ((mmc / nota2)*1) + ((mmc / nota3)*1)) / mmc) = 
+                 (qtd de elementos) / (soma / mmc) = 
+                 (qtd de elementos) * (inverso: mmc / soma) =
+                 (qtd de elementos * mmc) / (1 * soma) = RESULTADO
 '''
 
-print("\n--- Calculos de Média ---\n")
-
-def mmc(lista):
+def calcMMC(lista):
     x = 1
     while True:
         calc = max(lista) * x
         if all((calc % num) == 0 for num in lista):
             return calc
         x += 1
-        
+
+def mediaAritmetica(um, dois, tres, qtd):
+    return (um + dois + tres) / qtd
+
+def mediaPonderada(um, dois, tres, pesoUm, pesoDois, pesoTres):
+    return ((um*pesoUm) + (dois*pesoDois) + (tres*pesoTres)) / (pesoUm+pesoDois+pesoTres)
+
+def mediaHarmonica(um, dois, tres, qtd):
+    mmc = calcMMC([um, dois, tres])
+    mmcFracao = ((mmc/um)*1)+((mmc/dois)*1)+((mmc/tres)*1)
+    return (qtd * mmc) / mmcFracao
+
 def medias(notaUm, notaDois, notaTres, tipo):
-    # media_aritmetica
     if (tipo == 'A' or tipo == 'a'):
-        # formula: (nota1 + nota2 + nota3) / total_de_notas
-        calculo = (notaUm + notaDois + notaTres) / 3
-        print(f"\nA média aritmética é {calculo}")
-    # media_ponderada
+        print(f"\n>>> A média aritmética é {mediaAritmetica(notaUm, notaDois, notaTres, 3)}")
     elif (tipo == 'P' or tipo =='p'):
-        # formula: (nota1*peso1) + (nota2*peso2) + (nota3*peso3) / (peso1 + peso2 + peso3)
-        pesoUm = 5
-        pesoDois = 3
-        pesoTres = 2
-        calculo = ((notaUm*pesoUm) + (notaDois*pesoDois) + (notaTres*pesoTres)) / (pesoUm+pesoDois+pesoTres)
-        print(f"\nA média ponderada é {calculo}")
-    # media_harmonica
+        print(f"\n>>> A média ponderada é {mediaPonderada(notaUm, notaDois, notaTres, 5, 3, 2)}")
     elif (tipo == 'H' or tipo =='h'):
-        # formula: (qtd de elementos) / (1/nota1) + (1/nota2) + (1/nota3) [OBS: soma de fracoes, tirar mmc]
-        parte1 = 3
-        parte2 = notaUm+notaDois+notaTres
-        parte3 = mmc([notaUm, notaDois, notaTres])
-        parte4 = parte1 * parte3
-        parte5 = parte1 = parte2
-        calc = parte4 / parte5 #corrigir
-        print(calc)
+        print(f"\n>>> A média harmonica é {mediaHarmonica(notaUm, notaDois, notaTres, 3)}")
     else:
         print("O caractere informado é inválido. Use P, p, A, a, H ou h")
 
-inputUm = float(input("Informe a primeira nota: "))
-inputDois = float(input("Informe a segunda nota: "))
-inputTres = float(input("Informe a terceira nota: "))
-inputTipo = str(input("Informe o tipo de média desejado (A, P ou H): "))
+def testeFinal():
+    inputFinal = str(input("\nDeseja fazer um novo calculo? (S ou N): "))
+    if (inputFinal == 'S' or inputFinal == 's'):
+        calcula()
+    else:
+        exit()
 
-medias(inputUm, inputDois, inputTres, inputTipo)
+def calcula():
+    print("\n--- Calculos de Média ---\n")
+
+    inputUm = float(input("Informe a primeira nota: "))
+    inputDois = float(input("Informe a segunda nota: "))
+    inputTres = float(input("Informe a terceira nota: "))
+    inputTipo = str(input("Informe o tipo de média desejado (A, P ou H): "))
+
+    medias(inputUm, inputDois, inputTres, inputTipo)
+
+    testeFinal()
+
+calcula()
