@@ -25,10 +25,6 @@ FORMULAS:
                    (qtd de elementos) / (soma / mmc) = 
                    (qtd de elementos) * (inverso: mmc / soma) =
                    (qtd de elementos * mmc) / (1 * soma) = RESULTADO
-
-TED - Trabalho Efetivo Discente
-Author: Walmirino Machado da Costa Neto
-Matricula: 2021211590015
 '''
 
 def calcMMC(lista):
