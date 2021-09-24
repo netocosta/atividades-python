@@ -1,11 +1,11 @@
 '''
-Implemente um script phyton com:
-OK - uma função que recebe três valores numéricos e um carácter por parâmetro.
-OK - se o carácter passado como argumento for 'A' ou 'a', a função retorna o cálculo
+Implemente um script python com:
+- uma função que recebe três valores numéricos e um carácter por parâmetro.
+- se o carácter passado como argumento for 'A' ou 'a', a função retorna o cálculo
   da média aritmética dos valores númericos;
-OK - se o carácter passado como argumento for 'P' ou 'p', a função retorna o cálculo
+- se o carácter passado como argumento for 'P' ou 'p', a função retorna o cálculo
   da média ponderada (pesos: 5, 3 e 2) dos valores númericos;
-OK - e se o carácter passado como argumento for 'H' ou 'h', a função retorna a média
+- e se o carácter passado como argumento for 'H' ou 'h', a função retorna a média
   harmônica dos valores númericos.
 - este script deve interagir com o usuário consultando os três valores e também qual
   tipo de média o usuário deseja calcular.
@@ -18,13 +18,17 @@ DICAS:
 - use laço while e if/elif/else na implementação
 
 FORMULAS:
-Media Aritmetica: (nota1 + nota2 + nota3) / total_de_notas = RESULTADO
-Media Ponderada: (nota1*peso1) + (nota2*peso2) + (nota3*peso3) / (peso1 + peso2 + peso3) = RESULTADO
-Media Harmonica: (qtd de elementos) / (1/nota1) + (1/nota2) + (1/nota3) = 
-                 (qtd de elementos) / (((mmc / nota1)*1) + ((mmc / nota2)*1) + ((mmc / nota3)*1)) / mmc) = 
-                 (qtd de elementos) / (soma / mmc) = 
-                 (qtd de elementos) * (inverso: mmc / soma) =
-                 (qtd de elementos * mmc) / (1 * soma) = RESULTADO
+- Media Aritmetica: (nota1 + nota2 + nota3) / total_de_notas = RESULTADO
+- Media Ponderada: (nota1*peso1) + (nota2*peso2) + (nota3*peso3) / (peso1 + peso2 + peso3) = RESULTADO
+- Media Harmonica: (qtd de elementos) / (1/nota1) + (1/nota2) + (1/nota3) = 
+                   (qtd de elementos) / (((mmc / nota1)*1) + ((mmc / nota2)*1) + ((mmc / nota3)*1)) / mmc) = 
+                   (qtd de elementos) / (soma / mmc) = 
+                   (qtd de elementos) * (inverso: mmc / soma) =
+                   (qtd de elementos * mmc) / (1 * soma) = RESULTADO
+
+TED - Trabalho Efetivo Discente
+Author: Walmirino Machado da Costa Neto
+Matricula: 2021211590015
 '''
 
 def calcMMC(lista):
@@ -56,13 +60,6 @@ def medias(notaUm, notaDois, notaTres, tipo):
     else:
         print("O caractere informado é inválido. Use P, p, A, a, H ou h")
 
-def testeFinal():
-    inputFinal = str(input("\nDeseja fazer um novo calculo? (S ou N): "))
-    if (inputFinal == 'S' or inputFinal == 's'):
-        calcula()
-    else:
-        exit()
-
 def calcula():
     print("\n--- Calculos de Média ---\n")
 
@@ -71,8 +68,10 @@ def calcula():
     inputTres = float(input("Informe a terceira nota: "))
     inputTipo = str(input("Informe o tipo de média desejado (A, P ou H): "))
 
-    medias(inputUm, inputDois, inputTres, inputTipo)
+    medias(inputUm, inputDois, inputTres, inputTipo)  
 
-    testeFinal()
-
-calcula()
+while True:
+    calcula()
+    inputFinal = str(input("\nDeseja fazer um novo calculo? (S ou N): "))
+    if (inputFinal == 'N' or inputFinal == 'n'):
+        exit()
