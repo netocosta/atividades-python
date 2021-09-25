@@ -34,7 +34,7 @@ def calculaMMC(numeros):
     while loop < tamanhoLista:
         numMaximo = max(numeros) * incremento
         if (all(numMaximo % valor == 0 for valor in numeros)):
-            print(numMaximo)
+            return numMaximo
             break
         incremento += 1
         loop += 1
