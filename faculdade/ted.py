@@ -27,13 +27,17 @@ FORMULAS:
                    (qtd de elementos * mmc) / (1 * soma) = RESULTADO
 '''
 
-def calcMMC(lista):
-    x = 1
-    while True:
-        calc = max(lista) * x
-        if all((calc % num) == 0 for num in lista):
-            return calc
-        x += 1
+def calculaMMC(numeros):
+    tamanhoLista = len(numeros)
+    incremento = 1
+    loop = 0
+    while loop < tamanhoLista:
+        numMaximo = max(numeros) * incremento
+        if (all(numMaximo % valor == 0 for valor in numeros)):
+            print(numMaximo)
+            break
+        incremento += 1
+        loop += 1
 
 def mediaAritmetica(um, dois, tres, qtd):
     return (um + dois + tres) / qtd
@@ -42,7 +46,7 @@ def mediaPonderada(um, dois, tres, pesoUm, pesoDois, pesoTres):
     return ((um*pesoUm) + (dois*pesoDois) + (tres*pesoTres)) / (pesoUm+pesoDois+pesoTres)
 
 def mediaHarmonica(um, dois, tres, qtd):
-    mmc = calcMMC([um, dois, tres])
+    mmc = calculaMMC([um, dois, tres])
     mmcFracao = ((mmc/um)*1)+((mmc/dois)*1)+((mmc/tres)*1)
     return (qtd * mmc) / mmcFracao
 
