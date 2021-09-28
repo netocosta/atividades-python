@@ -3,6 +3,7 @@ Author: Walmirino Neto
 Package: Uniesp
 Date: 2021-09-28
 Project: Calculos de médias aritméticas, ponderadas e harmônicas
+Github: https://github.com/netocosta/atividades-python/blob/main/uniesp/ted-uniesp.py
 '''
 
 def calculaMMC(numeros):
