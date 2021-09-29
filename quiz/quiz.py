@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 '''
 Author: Neto Costa
-Description: Sistema faz as perguntas e o usuário responde com uma letra
+Description: Sistema faz as perguntas e o usuário responde com uma alternativa
 '''
 
 import random
